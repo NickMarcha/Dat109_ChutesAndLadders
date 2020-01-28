@@ -43,10 +43,7 @@ public class Player {
 
 			if(myDice.getSixCounter() == 3) {
 				//do something
-				currentTile = 0;
-				lockedAtStart = true;
-				myDice.ResetDice();
-				gMonitor.ConsolePrint(name + " rolled 6 three times");
+				MoveToStart();
 			} else {
 				if(!lockedAtStart || diceValue ==6) {
 					MoveSteps(diceValue);
@@ -54,6 +51,13 @@ public class Player {
 				}
 			}
 		}
+	}
+	
+	private void MoveToStart() {
+		currentTile = 0;
+		lockedAtStart = true;
+		myDice.ResetDice();
+		gMonitor.ConsolePrint(name + " rolled 6 three times");
 	}
 
 	/**Moves player a number of steps

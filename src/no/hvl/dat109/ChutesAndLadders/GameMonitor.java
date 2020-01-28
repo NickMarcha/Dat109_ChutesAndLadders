@@ -90,6 +90,10 @@ public class GameMonitor extends JPanel {
 		doDrawing(g);
 	}
 
+	/**Graphically moves player 
+	 * @param p - player to move
+	 * @param time - time to perform move over
+	 */
 	public void MovePlayer(Player p, double time) {
 		//doDrawing();
 
@@ -142,6 +146,10 @@ public class GameMonitor extends JPanel {
 	//five seconds max on console output
 	long maxTime = 5000;
 
+	
+	/**Prints message out to the Monitor screen, lasts 5 seconds + max 6 are shown
+	 * @param msg to be printed
+	 */
 	public void ConsolePrint(String msg) {
 		ConsoleOutput.add(msg);
 		ConsoleTime.add(System.currentTimeMillis());

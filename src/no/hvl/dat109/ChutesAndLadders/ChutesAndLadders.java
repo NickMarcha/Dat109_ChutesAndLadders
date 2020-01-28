@@ -38,6 +38,10 @@ public class ChutesAndLadders extends Thread{
 		gMonitor = mon;
 	}
 	
+	
+	/**
+	 *Class inherits from thread, use start instead
+	 */
 	public void run() {
 
 		while(playing) {
