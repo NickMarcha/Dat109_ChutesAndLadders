@@ -114,7 +114,7 @@ public class GameMonitor extends JPanel {
 			newplayery = 520;
 		}
 
-		for(double i = 0; i < 1; i+= (time== 0)?1:1/(time*500)) {
+		for(double i = 0; i < 1; i+= (time== 0)?1:1/(time*500)/Main.PLAYSPEED) {
 
 			playerx[playerID] = lerp(playerx[playerID], newplayerx,i);
 			playery[playerID] = lerp(playery[playerID], newplayery,i);
@@ -153,6 +153,11 @@ public class GameMonitor extends JPanel {
 
 		g.setColor(Color.black);
 		g.setFont(small);
+		
+		while(ConsoleOutput.size() > 5) {
+			ConsoleOutput.remove(0);
+			ConsoleTime.remove(0);
+		}
 
 		for(int i = Math.min(ConsoleOutput.size()-1, 5); i >= 0; i--){
 			if(ConsoleTime.get(i) + maxTime < System.currentTimeMillis()) {
@@ -162,7 +167,7 @@ public class GameMonitor extends JPanel {
 			} else {
 				int c = (int) Math.min(255,(System.currentTimeMillis()-ConsoleTime.get(i))*0.05);
 				g.setColor(new Color(c, c, c));
-				g.drawString(ConsoleOutput.get(i), 300, 596 - ((ConsoleOutput.size()-i)*14));
+				g.drawString(ConsoleOutput.get(i), 300, 596 - ((Math.min(ConsoleOutput.size()-1, 5)-i)*14));
 			}
 		}
 

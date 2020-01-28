@@ -45,7 +45,7 @@ public class ChutesAndLadders extends Thread{
 			players.forEach(p -> {if(playing) {
 				p.DoRound();
 				try {
-					sleep(1500);
+					sleep((long) (1500 * Main.PLAYSPEED));
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
